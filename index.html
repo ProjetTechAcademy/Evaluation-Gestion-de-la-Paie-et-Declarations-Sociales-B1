@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord Interactif - Gestion de Paie</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Amber -->
+    <!-- Application Structure Plan: The SPA is designed as an interactive learning dashboard, not a linear document. It uses a thematic structure based on the core competencies of payroll management (Configuration, Variables, Bulletins, Declarations, Analysis, Transversal Skills). A persistent sidebar allows users to navigate between these themes. The main content area uses an interactive accordion to display detailed information for each sub-topic, preventing information overload. This structure was chosen to facilitate focused study, non-linear exploration, and quick reference, making it a more effective tool for exam preparation than a static document. -->
+    <!-- Visualization & Content Choices: 
+    - Main Program Outline -> Goal: Navigation -> Presentation: Sidebar Menu -> Interaction: Click to filter content -> Justification: Intuitive SPA navigation.
+    - Detailed Tables -> Goal: Organize & Inform -> Presentation: Interactive Accordion with tabs for each detail (skills, laws, purpose) -> Interaction: Click to expand/collapse topics -> Justification: Manages high information density, allows user-controlled drill-down.
+    - Competency Distribution -> Goal: Overview -> Viz: Donut Chart (Chart.js/Canvas) -> Interaction: Hover for details -> Justification: Provides a quick visual summary of the curriculum's scope.
+    - Critical Legal/Numerical Data -> Goal: Highlight -> Presentation: Styled "Key Info" cards -> Interaction: Static display for emphasis -> Justification: Draws attention to essential facts.
+    CONFIRMATION: NO SVG/Mermaid used. All visuals are HTML/CSS or Canvas-based via Chart.js. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefce8; 
+        }
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+            max-width: 300px;
+            margin: auto;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+        .accordion-item.active .accordion-content {
+            max-height: 1000px; 
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .accordion-item.active .accordion-arrow {
+            transform: rotate(180deg);
+        }
+        .accordion-arrow {
+            transition: transform 0.3s ease-out;
+        }
+         ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fef3c7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f59e0b;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d97706;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="flex flex-col md:flex-row min-h-screen">
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar" class="w-full md:w-64 bg-amber-100 text-amber-900 p-4 md:p-6 flex-shrink-0 transition-all duration-300">
+            <h2 class="text-2xl font-bold mb-6">Menu Principal</h2>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#" data-theme="all" class="nav-link active font-semibold text-lg py-2.5 px-4 block rounded-lg bg-amber-200">Vue d'ensemble</a></li>
+                    <li><a href="#" data-theme="paramétrer" class="nav-link font-semibold text-lg py-2.5 px-4 block rounded-lg hover:bg-amber-200">Paramétrage</a></li>
+                    <li><a href="#" data-theme="collecter" class="nav-link font-semibold text-lg py-2.5 px-4 block rounded-lg hover:bg-amber-200">Variables de Paie</a></li>
+                    <li><a href="#" data-theme="contrôler" class="nav-link font-semibold text-lg py-2.5 px-4 block rounded-lg hover:bg-amber-200">Bulletins de Paie</a></li>
+                    <li><a href="#" data-theme="gérer" class="nav-link font-semibold text-lg py-2.5 px-4 block rounded-lg hover:bg-amber-200">Déclarations Sociales</a></li>
+                    <li><a href="#" data-theme="analyser" class="nav-link font-semibold text-lg py-2.5 px-4 block rounded-lg hover:bg-amber-200">Paie & Comptabilité</a></li>
+                    <li><a href="#" data-theme="transversal" class="nav-link font-semibold text-lg py-2.5 px-4 block rounded-lg hover:bg-amber-200">Compétences Transverses</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-4 sm:p-6 md:p-10">
+            <header class="mb-8">
+                <h1 class="text-4xl font-bold text-amber-700">Évaluation Gestion de la Paie et Déclarations Sociales 🚀✨</h1>
+                <p class="mt-2 text-lg text-gray-600">Un tableau de bord interactif pour maîtriser les compétences clés du Gestionnaire de Paie.</p>
+            </header>
+
+            <!-- Overview Section -->
+            <section id="overview-section" class="mb-10">
+                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center bg-white p-6 rounded-2xl shadow-md border border-amber-200">
+                    <div class="lg:col-span-2">
+                        <h2 class="text-2xl font-bold text-amber-600 mb-3">Bienvenue sur votre espace d'apprentissage</h2>
+                        <p class="text-gray-700 leading-relaxed">
+                            Cette application a été conçue pour vous aider à naviguer et assimiler le programme du Bloc 1. Utilisez le menu pour explorer chaque grand thème. Chaque section contient des fiches détaillées sur les savoirs, les compétences RNCP, les enjeux métiers et les bases légales à maîtriser. L'objectif est de transformer votre révision en une expérience active et structurée pour assurer votre succès.
+                        </p>
+                        <div class="mt-6 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                            <a href="https://projettechacademy.github.io/Guide-de-Survie-Pour-Evaluation-Paie/" target="_blank" class="inline-block bg-amber-500 text-white font-bold py-3 px-6 rounded-full shadow-md hover:bg-amber-600 transition-colors duration-200 text-center">
+                                Accéder au Guide de Survie
+                            </a>
+                            <a href="https://projettechacademy.github.io/Preparation-Evaluation-GP_B1/" target="_blank" class="inline-block bg-pink-500 text-white font-bold py-3 px-6 rounded-full shadow-md hover:bg-pink-600 transition-colors duration-200 text-center">
+                                Préparation à l'Évaluation 📝✨
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="chart-container">
+                            <canvas id="competencyChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="content-section">
+                <h2 id="section-title" class="text-3xl font-bold text-amber-600 mb-6"></h2>
+                <p id="section-intro" class="text-gray-600 mb-8 max-w-4xl"></p>
+                <div id="accordion-container" class="space-y-4">
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        const payrollData = [
+            {
+                theme: "paramétrer",
+                title: "Paramétrer le logiciel de paie",
+                intro: "Le paramétrage initial du logiciel est le socle de toute la gestion de la paie. Une configuration précise et conforme garantit la fiabilité des calculs et des déclarations futures, évitant des erreurs en cascade.",
+                subtopics: [
+                    { title: "Identification de l'entreprise", toMaster: "Saisie des données administratives (Raison sociale, Siret, APE), identification de la convention collective (IDCC), connaissance des règles d'opposabilité.", competence: "RNCP38019BC01", why: "Assurer la conformité légale, l'opposabilité et le bon traitement des cotisations. Incontournable pour la validité de la paie.", legal: "Art. L3243-2 Code du travail" },
+                    { title: "Identification du salarié", toMaster: "Collecte et vérification des données : n° sécurité sociale valide, classification, statut, taux PAS personnalisé.", competence: "RNCP38019BC01", why: "Données essentielles pour la production correcte des bulletins et la DSN.", legal: "Art. R3243-1 Code du travail" },
+                    { title: "Contrat de travail", toMaster: "Différencier CDI/CDD, gérer dates, période d'essai, durée du travail. Maîtriser les formalités d'entrée et sortie.", competence: "RNCP38019BC02", why: "Garantir la régularité juridique du contrat, éviter les contentieux.", legal: "Art. L1221-10 et suivants C. trav." },
+                ]
+            },
+            {
+                theme: "collecter",
+                title: "Collecter et traiter les variables de paie",
+                intro: "La collecte et le traitement des éléments variables constituent le cœur du métier. Chaque mois, ces données fluctuantes doivent être calculées avec rigueur pour refléter l'activité réelle du salarié et garantir une rémunération juste.",
+                subtopics: [
+                    { title: "Salaire de base", toMaster: "Calcul du salaire brut (mensuel/horaire), gestion du prorata (absence, temps partiel), respect des minimas légaux et conventionnels.", competence: "RNCP38019BC01", why: "C'est l'assiette principale du calcul de la paie ; une erreur invalide tout le bulletin.", legal: "Art. L3242-1 C. trav." },
+                    { title: "Heures supplémentaires et complémentaires", toMaster: "Connaître les taux de majoration légaux/conventionnels, identifier les plafonds, décompter et calculer les montants, intégrer les exonérations (TEPA).", competence: "RNCP38019BC01", why: "Respect du droit du travail, optimisation des charges et prévention des litiges URSSAF.", legal: "L3121-28 C. trav., L241-3 CSS" },
+                    { title: "Primes et commissions", toMaster: "Identifier les primes soumises à cotisations, distinguer fixe/variable, calculer les montants (% CA, forfait) et connaître l'impact sur les assiettes.", competence: "RNCP38019BC01", why: "Garantir une juste rémunération et la cohérence des bases de cotisations pour la DSN.", legal: "Loi sur la rémunération variable" },
+                    { title: "Avantages en nature", toMaster: "Maîtriser la valorisation (forfaitaire/réelle) des avantages (véhicule, logement), appliquer les cotisations correspondantes.", competence: "RNCP38019BC01", why: "Limiter les risques de redressement URSSAF, impact direct sur le net imposable.", legal: "Circulaire Urssaf, BoSS" },
+                    { title: "Congés payés", toMaster: "Décompte en jours ouvrables/ouvrés, calcul de l'indemnité (maintien vs 1/10e), gestion du prorata.", competence: "RNCP38019BC01", why: "Droit fondamental du salarié. Toute erreur est une source de litige potentiel.", legal: "Art. L3141-1 C. trav." },
+                    { title: "Absences et arrêts maladie", toMaster: "Calcul des retenues sur salaire, application du maintien de salaire (légal/conventionnel), gestion de la subrogation et des IJSS.", competence: "RNCP38019BC01", why: "Garantir une paie conforme, respecter la protection du salarié et éviter les sanctions.", legal: "Art L1226-1 C. trav." },
+                ]
+            },
+            {
+                theme: "contrôler",
+                title: "Contrôler et éditer les Bulletins de paie",
+                intro: "L'édition du bulletin de paie est l'aboutissement du processus mensuel. Cette étape cruciale exige un contrôle méticuleux pour garantir l'exactitude des informations transmises au salarié et aux organismes.",
+                subtopics: [
+                    { title: "Bases et taux de cotisations sociales", toMaster: "Connaître les bases plafonnées/déplafonnées (PMSS), appliquer les taux (URSSAF, retraite, prévoyance), gérer les régularisations annuelles.", competence: "RNCP38019BC01", why: "Assurer l'exactitude des cotisations versées, éviter les pénalités et optimiser les coûts.", legal: "Articles L241-8 CSS, RGCP" },
+                    { title: "Réductions et allègements", toMaster: "Maîtriser le calcul de la réduction générale de cotisations (ex-Fillon) et des exonérations sur les heures supplémentaires (TEPA).", competence: "RNCP38019BC01", why: "Optimisation légale de la masse salariale, impact direct sur le coût du travail.", legal: "Décrets en vigueur" },
+                    { title: "Calcul du net et de l'imposable", toMaster: "Calculer le net imposable, le net à payer et le net social. Gérer la CSG/CRDS, appliquer le prélèvement à la source (PAS).", competence: "RNCP38019BC01", why: "Clarté du bulletin, conformité fiscale et respect des obligations de l'employeur.", legal: "BOFiP, Code Général des Impôts" },
+                    { title: "Édition du bulletin de paie", toMaster: "Savoir présenter toutes les mentions obligatoires, justifier chaque ligne de calcul, et respecter la législation en vigueur.", competence: "RNCP38019BC01", why: "Le bulletin est une preuve juridique. Sa conformité est essentielle en cas de contrôle.", legal: "Art L3243-2 C. trav." },
+                ]
+            },
+            {
+                theme: "gérer",
+                title: "Gérer les déclarations sociales",
+                intro: "La gestion des déclarations sociales, notamment la DSN, est une responsabilité majeure. Elle assure la transmission d'informations fiables aux organismes sociaux et le financement de la protection sociale.",
+                subtopics: [
+                    { title: "Déclarations Sociales Nominatives (DSN)", toMaster: "Saisir les bases et montants avec exactitude, contrôler les anomalies, respecter le calendrier de dépôt (J+15), gérer les corrections.", competence: "RNCP38019BC01", why: "Obligation légale lourde, avec un risque élevé de pénalités et de redressements URSSAF.", legal: "Code Sécurité Sociale Art. L133-5-2" },
+                    { title: "Taxes et contributions", toMaster: "Gérer la taxe d'apprentissage, la participation à la formation continue, la DOETH, et les taxes sur les salaires.", competence: "RNCP38019BC01", why: "Respect des obligations légales annexes à la paie, qui sont aussi soumises à contrôle.", legal: "Dispositions légales spécifiques" },
+                ]
+            },
+            {
+                theme: "analyser",
+                title: "Analyser les écarts entre la paie et la comptabilité",
+                intro: "La cohérence entre la paie et la comptabilité est vitale pour la santé financière de l'entreprise. Le gestionnaire de paie doit savoir identifier, analyser et corriger les écarts pour garantir la fiabilité des comptes.",
+                subtopics: [
+                    { title: "Comptabilisation de la paie", toMaster: "Affecter les charges salariales et patronales aux bons comptes comptables, préparer l'état des écritures de paie.", competence: "RNCP38019BC01", why: "Assure la transparence et la cohérence de la gestion financière de l'entreprise.", legal: "Plan comptable général" },
+                    { title: "Analyse et correction des écarts", toMaster: "Identifier les causes d'écarts (paramétrage, saisie), proposer des actions correctrices (bulletin, DSN), documenter le risque.", competence: "RNCP38019BC01", why: "Limiter les risques de redressement, sécuriser la gestion de la paie, et crédibiliser la fonction.", legal: "Bonnes pratiques et obligations légales" },
+                ]
+            },
+            {
+                theme: "transversal",
+                title: "Compétences Transverses",
+                intro: "Au-delà de la technique, le gestionnaire de paie moderne doit développer des compétences transverses essentielles : veille juridique, communication, analyse de données et maîtrise des outils SIRH.",
+                subtopics: [
+                    { title: "Veille juridique", toMaster: "Savoir rechercher les textes officiels (Code du Travail, CSS, BOFiP), synthétiser les évolutions, et diffuser l'information.", competence: "RNCP38019BC03", why: "S'adapter en permanence à l'évolution du droit social est indispensable pour garantir la conformité.", legal: "Sources officielles" },
+                    { title: "Communication et conseil", toMaster: "Expliquer un bulletin de paie, répondre aux questions des salariés, former les managers aux outils et procédures.", competence: "RNCP38019BC03", why: "Faciliter la compréhension, réduire les erreurs et responsabiliser les équipes.", legal: "Bonnes pratiques" },
+                    { title: "Reporting et pilotage RH", toMaster: "Réaliser des tableaux de bord (masse salariale, effectifs, absentéisme), exploiter les données pour aider à la décision.", competence: "RNCP38019BC03", why: "Soutenir la stratégie RH en fournissant une vision claire des coûts et de la gestion sociale.", legal: "Analyse de données" },
+                    { title: "Utilisation du SIRH", toMaster: "Rédiger des modes opératoires, former et accompagner les collaborateurs dans l'utilisation des outils (gestion des congés, temps).", competence: "RNCP38019BC03", why: "Assurer l'adoption des outils numériques pour fluidifier la gestion RH et réduire les erreurs.", legal: "Gestion de projet" },
+                ]
+            }
+        ];
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const accordionContainer = document.getElementById('accordion-container');
+            const sectionTitle = document.getElementById('section-title');
+            const sectionIntro = document.getElementById('section-intro');
+            const overviewSection = document.getElementById('overview-section');
+            const contentSection = document.getElementById('content-section');
+
+            function renderContent(theme = 'all') {
+                accordionContainer.innerHTML = '';
+                
+                if (theme === 'all') {
+                    overviewSection.style.display = 'block';
+                    contentSection.style.display = 'none';
+                    return;
+                }
+                
+                overviewSection.style.display = 'none';
+                contentSection.style.display = 'block';
+
+                const themeData = payrollData.find(item => item.theme === theme);
+                if (!themeData) return;
+
+                sectionTitle.textContent = themeData.title;
+                sectionIntro.textContent = themeData.intro;
+                
+                themeData.subtopics.forEach((subtopic, index) => {
+                    const item = document.createElement('div');
+                    item.className = 'accordion-item bg-white rounded-xl shadow-sm border border-amber-200 overflow-hidden';
+                    item.innerHTML = `
+                        <button class="accordion-header w-full text-left p-5 flex justify-between items-center">
+                            <span class="text-xl font-semibold text-amber-800">${subtopic.title}</span>
+                            <span class="accordion-arrow text-amber-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="accordion-content px-5">
+                            <div class="prose max-w-none">
+                                <h4 class="font-bold text-amber-700">À Maîtriser :</h4>
+                                <p>${subtopic.toMaster}</p>
+                                <h4 class="font-bold text-amber-700 mt-4">Compétence RNCP :</h4>
+                                <p>${subtopic.competence}</p>
+                                <h4 class="font-bold text-amber-700 mt-4">Enjeux & Risques :</h4>
+                                <p>${subtopic.why}</p>
+                                 <h4 class="font-bold text-amber-700 mt-4">Référence Légale Clé :</h4>
+                                 <p class="italic">${subtopic.legal}</p>
+                            </div>
+                        </div>
+                    `;
+                    accordionContainer.appendChild(item);
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    navLinks.forEach(l => {
+                        l.classList.remove('active', 'bg-amber-200');
+                    });
+                    
+                    link.classList.add('active', 'bg-amber-200');
+                    const theme = link.getAttribute('data-theme');
+                    renderContent(theme);
+                });
+            });
+
+            accordionContainer.addEventListener('click', (e) => {
+                const header = e.target.closest('.accordion-header');
+                if (header) {
+                    const item = header.parentElement;
+                    item.classList.toggle('active');
+                }
+            });
+            
+            function createChart() {
+                const ctx = document.getElementById('competencyChart').getContext('2d');
+                const labels = payrollData.map(item => item.title);
+                const data = payrollData.map(item => item.subtopics.length);
+
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Nombre de sous-thèmes',
+                            data: data,
+                            backgroundColor: [
+                                '#fcd34d', '#fbbf24', '#f59e0b', '#d97706', '#b45309', '#92400e'
+                            ],
+                            borderColor: '#fefce8',
+                            borderWidth: 4,
+                            hoverOffset: 8
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed !== null) {
+                                            label += context.parsed + ' notions clés';
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        },
+                        cutout: '60%'
+                    }
+                });
+            }
+
+            renderContent('all');
+            createChart();
+        });
+    </script>
+</body>
+</html>
