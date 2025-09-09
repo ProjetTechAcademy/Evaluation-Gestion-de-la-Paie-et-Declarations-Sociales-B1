@@ -131,9 +131,30 @@
                 title: "Paramétrer le logiciel de paie",
                 intro: "Le paramétrage initial du logiciel est le socle de toute la gestion de la paie. Une configuration précise et conforme garantit la fiabilité des calculs et des déclarations futures, évitant des erreurs en cascade.",
                 subtopics: [
-                    { title: "Identification de l'entreprise", toMaster: "Saisie des données administratives (Raison sociale, Siret, APE), identification de la convention collective (IDCC), connaissance des règles d'opposabilité.", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Assurer la conformité légale, l'opposabilité et le bon traitement des cotisations. Incontournable pour la validité de la paie.", legal: "Art. L3243-2 Code du travail" },
-                    { title: "Identification du salarié", toMaster: "Collecte et vérification des données : n° sécurité sociale valide, classification, statut, taux PAS personnalisé.", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Données essentielles pour la production correcte des bulletins et la DSN.", legal: "Art. R3243-1 Code du travail" },
-                    { title: "Contrat de travail", toMaster: "Différencier CDI/CDD, gérer dates, période d'essai, durée du travail. Maîtriser les formalités d'entrée et sortie.", competence: "RNCP38019BC02", competenceTitle: "Gérer les déclarations sociales et les cotisations", why: "Garantir la régularité juridique du contrat, éviter les contentieux.", legal: "Art. L1221-10 et suivants C. trav." },
+                    { 
+                        title: "Identification de l'entreprise", 
+                        toMaster: "Saisie des données administratives (Raison sociale, Siret, APE), identification de la convention collective (IDCC), connaissance des règles d'opposabilité. Maîtriser l'impact de ces données sur le calcul de la paie et la conformité légale de l'entreprise.", 
+                        competence: "RNCP38019BC01", 
+                        competenceTitle: "Gérer les variables et les bulletins de paie", 
+                        why: "Une identification correcte est le point de départ de toute paie conforme. Une erreur sur le Siret ou le code APE peut entraîner de lourds redressements URSSAF. L'opposabilité est une notion juridique cruciale qui détermine l'application des dispositions d'une convention collective.", 
+                        legal: "Art. L3243-2 Code du travail" 
+                    },
+                    { 
+                        title: "Identification du salarié", 
+                        toMaster: "Collecte et vérification des données essentielles : numéro de sécurité sociale valide, classification, statut, taux de prélèvement à la source (PAS) personnalisé. S'assurer de l'intégrité des informations transmises par le salarié pour éviter des erreurs qui affectent la paie et les déclarations.", 
+                        competence: "RNCP38019BC01", 
+                        competenceTitle: "Gérer les variables et les bulletins de paie", 
+                        why: "Des données salariés erronées peuvent causer des bulletins de paie incorrects et impacter directement le net à payer, le net imposable, et la DSN, augmentant le risque de litiges avec les salariés ou les organismes sociaux.", 
+                        legal: "Art. R3243-1 Code du travail" 
+                    },
+                    { 
+                        title: "Contrat de travail", 
+                        toMaster: "Différencier les types de contrats (CDI/CDD), gérer les dates d'entrée et de sortie, la période d'essai, et la durée du travail. Maîtriser les formalités d'embauche (DPAE) et de rupture (démission, licenciement).", 
+                        competence: "RNCP38019BC02", 
+                        competenceTitle: "Gérer les déclarations sociales et les cotisations", 
+                        why: "La non-conformité des contrats de travail peut entraîner des contentieux aux Prud'hommes et des sanctions pour l'entreprise. Un bon paramétrage assure la bonne application des règles contractuelles et la validité des formalités légales.", 
+                        legal: "Art. L1221-10 et suivants C. trav." 
+                    },
                 ],
                 courseModules: [
                     {
@@ -165,12 +186,54 @@
                 title: "Collecter et traiter les variables de paie",
                 intro: "La collecte et le traitement des éléments variables constituent le cœur du métier. Chaque mois, ces données fluctuantes doivent être calculées avec rigueur pour refléter l'activité réelle du salarié et garantir une rémunération juste.",
                 subtopics: [
-                    { title: "Salaire de base", toMaster: "Calcul du salaire brut (mensuel/horaire), gestion du prorata (absence, temps partiel), respect des minimas légaux et conventionnels.", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "C'est l'assiette principale du calcul de la paie ; une erreur invalide tout le bulletin.", legal: "Art. L3242-1 C. trav." },
-                    { title: "Heures supplémentaires et complémentaires", toMaster: "Connaître les taux de majoration légaux/conventionnels, identifier les plafonds, décompter et calculer les montants, intégrer les exonérations (TEPA).", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Respect du droit du travail, optimisation des charges et prévention des litiges URSSAF.", legal: "L3121-28 C. trav., L241-3 CSS" },
-                    { title: "Primes et commissions", toMaster: "Identifier les primes soumises à cotisations, distinguer fixe/variable, calculer les montants (% CA, forfait) et connaître l'impact sur les assiettes.", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Garantir une juste rémunération et la cohérence des bases de cotisations pour la DSN.", legal: "Loi sur la rémunération variable" },
-                    { title: "Avantages en nature", toMaster: "Maîtriser la valorisation (forfaitaire/réelle) des avantages (véhicule, logement), appliquer les cotisations correspondantes.", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Limiter les risques de redressement URSSAF, impact direct sur le net imposable.", legal: "Circulaire Urssaf, BoSS" },
-                    { title: "Congés payés", toMaster: "Décompte en jours ouvrables/ouvrés, calcul de l'indemnité (maintien vs 1/10e), gestion du prorata.", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Droit fondamental du salarié. Toute erreur est une source de litige potentiel.", legal: "Art. L3141-1 C. trav." },
-                    { title: "Absences et arrêts maladie", toMaster: "Calcul des retenues sur salaire, application du maintien de salaire (légal/conventionnel), gestion de la subrogation et des IJSS.", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Garantir une paie conforme, respecter la protection du salarié et éviter les sanctions.", legal: "Art L1226-1 C. trav." },
+                    { 
+                        title: "Salaire de base", 
+                        toMaster: "Calculer le salaire brut (mensuel ou horaire) en respectant les minimas légaux et conventionnels. Gérer le prorata du salaire en cas d'absence, de temps partiel, ou d'entrée/sortie en cours de mois. S'assurer que le calcul est juste et conforme.", 
+                        competence: "RNCP38019BC01", 
+                        competenceTitle: "Gérer les variables et les bulletins de paie", 
+                        why: "Le salaire de base est l'assiette principale du calcul de la paie. Une erreur à cette étape invalide l'ensemble du bulletin et peut causer des litiges avec le salarié ou un contrôle de l'inspection du travail.", 
+                        legal: "Art. L3242-1 C. trav." 
+                    },
+                    { 
+                        title: "Heures supplémentaires et complémentaires", 
+                        toMaster: "Connaître les taux de majoration légaux (25% ou 50%) ou conventionnels. Identifier les plafonds d'heures et calculer les montants précis. Intégrer les exonérations sociales et fiscales de type TEPA, si applicable.", 
+                        competence: "RNCP38019BC01", 
+                        competenceTitle: "Gérer les variables et les bulletins de paie", 
+                        why: "Un décompte ou un calcul incorrect peut entraîner un non-respect du droit du travail. Une mauvaise intégration des exonérations peut mener à un redressement URSSAF ou un manque à gagner pour l'entreprise.", 
+                        legal: "L3121-28 C. trav., L241-3 CSS" 
+                    },
+                    { 
+                        title: "Primes et commissions", 
+                        toMaster: "Identifier les primes soumises à cotisations (par opposition aux frais professionnels). Distinguer les primes fixes des variables. Calculer les montants (% du CA, forfait) et vérifier leur impact sur les assiettes de cotisations pour la DSN.", 
+                        competence: "RNCP38019BC01", 
+                        competenceTitle: "Gérer les variables et les bulletins de paie", 
+                        why: "Une erreur dans le traitement des primes peut fausser les bases de calcul des cotisations sociales, compromettre la justesse de la DSN, et générer de l'insatisfaction chez le salarié.", 
+                        legal: "Loi sur la rémunération variable" 
+                    },
+                    { 
+                        title: "Avantages en nature", 
+                        toMaster: "Maîtriser la valorisation des avantages en nature (véhicule, logement, repas, etc.) selon la méthode forfaitaire ou la valeur réelle. Appliquer les cotisations sociales correspondantes et vérifier leur impact sur le net imposable.", 
+                        competence: "RNCP38019BC01", 
+                        competenceTitle: "Gérer les variables et les bulletins de paie", 
+                        why: "Le mauvais traitement des avantages en nature est une cause fréquente de redressement URSSAF. Un calcul incorrect a un impact direct sur le net imposable du salarié, ce qui peut entraîner des problèmes fiscaux.", 
+                        legal: "Circulaire Urssaf, Bulletin Officiel de la Sécurité Sociale (BoSS)" 
+                    },
+                    { 
+                        title: "Congés payés", 
+                        toMaster: "Maîtriser le décompte des congés en jours ouvrables ou ouvrés. Calculer l'indemnité selon la règle du maintien de salaire et la règle du 1/10e. Gérer le prorata des droits acquis pour un salarié en entrée ou sortie de période.", 
+                        competence: "RNCP38019BC01", 
+                        competenceTitle: "Gérer les variables et les bulletins de paie", 
+                        why: "Le droit aux congés payés est fondamental. Toute erreur, qu'elle soit dans l'acquisition ou le calcul de l'indemnité, est une source de litige potentiel avec le salarié et peut être sanctionnée par l'inspection du travail.", 
+                        legal: "Art. L3141-1 C. trav." 
+                    },
+                    { 
+                        title: "Absences et arrêts maladie", 
+                        toMaster: "Calculer les retenues sur salaire pour absence. Appliquer le maintien de salaire selon la législation ou la convention collective. Gérer la subrogation de l'employeur et les Indemnités Journalières de la Sécurité Sociale (IJSS).", 
+                        competence: "RNCP38019BC01", 
+                        competenceTitle: "Gérer les variables et les bulletins de paie", 
+                        why: "La gestion des arrêts est complexe. Des erreurs peuvent entraîner des sanctions, la non-conformité de la paie, ou un non-respect de la protection sociale du salarié. Une mauvaise gestion de la subrogation affecte la trésorerie de l'entreprise.", 
+                        legal: "Art L1226-1 C. trav." 
+                    },
                 ],
                 courseModules: [
                     {
@@ -212,10 +275,38 @@
                 title: "Contrôler et éditer les Bulletins de paie",
                 intro: "L'édition du bulletin de paie est l'aboutissement du processus mensuel. Cette étape cruciale exige un contrôle méticuleux pour garantir l'exactitude des informations transmises au salarié et aux organismes.",
                 subtopics: [
-                    { title: "Bases et taux de cotisations sociales", toMaster: "Connaître les bases plafonnées/déplafonnées (PMSS), appliquer les taux (URSSAF, retraite, prévoyance), gérer les régularisations annuelles.", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Assurer l'exactitude des cotisations versées, éviter les pénalités et optimiser les coûts.", legal: "Articles L241-8 CSS, RGCP" },
-                    { title: "Réductions et allègements", toMaster: "Maîtriser le calcul de la réduction générale de cotisations (ex-Fillon) et des exonérations sur les heures supplémentaires (TEPA).", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Optimisation légale de la masse salariale, impact direct sur le coût du travail.", legal: "Décrets en vigueur" },
-                    { title: "Calcul du net et de l'imposable", toMaster: "Calculer le net imposable, le net à payer et le net social. Gérer la CSG/CRDS, appliquer le prélèvement à la source (PAS).", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Clarté du bulletin, conformité fiscale et respect des obligations de l'employeur.", legal: "BOFiP, Code Général des Impôts" },
-                    { title: "Édition du bulletin de paie", toMaster: "Savoir présenter toutes les mentions obligatoires, justifier chaque ligne de calcul, et respecter la législation en vigueur.", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Le bulletin est une preuve juridique. Sa conformité est essentielle en cas de contrôle.", legal: "Art L3243-2 C. trav." },
+                    { 
+                        title: "Bases et taux de cotisations sociales", 
+                        toMaster: "Connaître les bases plafonnées et déplafonnées (avec le PMSS comme référence). Appliquer les taux des différentes cotisations (URSSAF, retraite, prévoyance). Gérer les régularisations annuelles et les spécificités des taux en fonction du statut du salarié.", 
+                        competence: "RNCP38019BC01", 
+                        competenceTitle: "Gérer les variables et les bulletins de paie", 
+                        why: "L'exactitude des bases et des taux est fondamentale pour la conformité. Une erreur peut entraîner un sous-paiement des cotisations, menant à des pénalités lors d'un contrôle de l'URSSAF.", 
+                        legal: "Articles L241-8 Code de la Sécurité Sociale (CSS), Règlement Général des Cotisations Patronales (RGCP)" 
+                    },
+                    { 
+                        title: "Réductions et allègements", 
+                        toMaster: "Maîtriser le calcul de la réduction générale de cotisations (ex-réduction Fillon). Identifier les conditions d'application et les seuils de rémunération pour cette exonération. Connaître les exonérations spécifiques comme celles sur les heures supplémentaires (TEPA).", 
+                        competence: "RNCP38019BC01", 
+                        competenceTitle: "Gérer les variables et les bulletins de paie", 
+                        why: "Ces dispositifs sont des leviers majeurs pour optimiser légalement la masse salariale. Une mauvaise maîtrise entraîne un surcoût pour l'entreprise ou, pire, un redressement en cas de calcul erroné.", 
+                        legal: "Décrets en vigueur" 
+                    },
+                    { 
+                        title: "Calcul du net et de l'imposable", 
+                        toMaster: "Comprendre les différentes notions : net imposable, net à payer, et net social. Maîtriser le calcul et l'application du prélèvement à la source (PAS) et des contributions CSG/CRDS, en tenant compte du taux personnalisé du salarié.", 
+                        competence: "RNCP38019BC01", 
+                        competenceTitle: "Gérer les variables et les bulletins de paie", 
+                        why: "La clarté du bulletin de paie est essentielle pour le salarié. Un calcul faux peut entraîner des réclamations, un litige fiscal, et remettre en question la crédibilité du gestionnaire de paie.", 
+                        legal: "BOFiP (Bulletin Officiel des Finances Publiques), Code Général des Impôts" 
+                    },
+                    { 
+                        title: "Édition du bulletin de paie", 
+                        toMaster: "Savoir présenter toutes les mentions obligatoires et les justificatifs de calcul. Garantir que le bulletin respecte la législation en vigueur et qu'il est compréhensible pour le salarié. Préparer le bulletin pour sa transmission (papier ou électronique).", 
+                        competence: "RNCP38019BC01", 
+                        competenceTitle: "Gérer les variables et les bulletins de paie", 
+                        why: "Le bulletin est une preuve juridique en cas de contrôle ou de litige. Sa conformité est indispensable et toute omission peut avoir des conséquences légales importantes pour l'employeur.", 
+                        legal: "Art L3243-2 C. trav." 
+                    },
                 ],
                 courseModules: [
                      {
@@ -253,8 +344,22 @@
                 title: "Gérer les déclarations sociales",
                 intro: "La gestion des déclarations sociales, notamment la DSN, est une responsabilité majeure. Elle assure la transmission d'informations fiables aux organismes sociaux et le financement de la protection sociale.",
                 subtopics: [
-                    { title: "Déclarations Sociales Nominatives (DSN)", toMaster: "Saisir les bases et montants avec exactitude, contrôler les anomalies, respecter le calendrier de dépôt (J+15), gérer les corrections.", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Obligation légale lourde, avec un risque élevé de pénalités et de redressements URSSAF.", legal: "Code Sécurité Sociale Art. L133-5-2" },
-                    { title: "Taxes et contributions", toMaster: "Gérer la taxe d'apprentissage, la participation à la formation continue, la DOETH, et les taxes sur les salaires.", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Respect des obligations légales annexes à la paie, qui sont aussi soumises à contrôle.", legal: "Dispositions légales spécifiques" },
+                    { 
+                        title: "Déclarations Sociales Nominatives (DSN)", 
+                        toMaster: "Saisir les bases et montants avec exactitude, contrôler les anomalies, et respecter le calendrier de dépôt (J+15 du mois suivant). Gérer les différentes phases de la DSN, y compris les corrections et les signalements d'événements (maladie, fin de contrat).", 
+                        competence: "RNCP38019BC01", 
+                        competenceTitle: "Gérer les variables et les bulletins de paie", 
+                        why: "La DSN est une obligation légale lourde. Toute erreur de déclaration ou non-respect du calendrier peut entraîner des pénalités financières élevées, un redressement de l'URSSAF et des dysfonctionnements dans les droits des salariés (mutuelle, retraite).", 
+                        legal: "Code Sécurité Sociale Art. L133-5-2" 
+                    },
+                    { 
+                        title: "Taxes et contributions", 
+                        toMaster: "Gérer le calcul et la déclaration des taxes annexes à la paie : taxe d'apprentissage, participation à la formation continue, contribution unique au dialogue social et DOETH (Déclaration Obligatoire d'Emploi des Travailleurs Handicapés).", 
+                        competence: "RNCP38019BC01", 
+                        competenceTitle: "Gérer les variables et les bulletins de paie", 
+                        why: "Ces contributions représentent un volet essentiel de la paie. Leur non-déclaration ou un calcul erroné expose l'entreprise à des pénalités financières et à des contrôles supplémentaires.", 
+                        legal: "Dispositions légales spécifiques" 
+                    },
                 ],
                 courseModules: [
                     {
@@ -282,8 +387,22 @@
                 title: "Analyser les écarts entre la paie et la comptabilité",
                 intro: "La cohérence entre la paie et la comptabilité est vitale pour la santé financière de l'entreprise. Le gestionnaire de paie doit savoir identifier, analyser et corriger les écarts pour garantir la fiabilité des comptes.",
                 subtopics: [
-                    { title: "Comptabilisation de la paie", toMaster: "Affecter les charges salariales et patronales aux bons comptes comptables, préparer l'état des écritures de paie.", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Assure la transparence et la cohérence de la gestion financière de l'entreprise.", legal: "Plan comptable général" },
-                    { title: "Analyse et correction des écarts", toMaster: "Identifier les causes d'écarts (paramétrage, saisie), proposer des actions correctrices (bulletin, DSN), documenter le risque.", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Limiter les risques de redressement, sécuriser la gestion de la paie, et crédibiliser la fonction.", legal: "Bonnes pratiques et obligations légales" },
+                    { 
+                        title: "Comptabilisation de la paie", 
+                        toMaster: "Maîtriser l'affectation des charges salariales et patronales aux bons comptes comptables (classes 4, 6 et 43). Savoir préparer l'état des écritures de paie pour faciliter le travail du comptable. L'objectif est d'assurer une parfaite traçabilité et cohérence entre les données de la paie et celles de la comptabilité.", 
+                        competence: "RNCP38019BC01", 
+                        competenceTitle: "Gérer les variables et les bulletins de paie", 
+                        why: "Une comptabilisation de la paie erronée peut fausser la vision financière de l'entreprise. Cela complique l'établissement des bilans et des comptes de résultats, et peut entraîner des sanctions en cas de contrôle fiscal.", 
+                        legal: "Plan comptable général" 
+                    },
+                    { 
+                        title: "Analyse et correction des écarts", 
+                        toMaster: "Savoir identifier les causes d'écarts (problème de paramétrage, erreur de saisie, mauvaise interprétation d'une règle). Proposer des actions correctrices sur le bulletin ou la DSN. Documenter les risques et les solutions pour sécuriser la gestion de la paie.", 
+                        competence: "RNCP38019BC01", 
+                        competenceTitle: "Gérer les variables et les bulletins de paie", 
+                        why: "L'analyse des écarts est un enjeu majeur pour la sécurisation de la paie. Une analyse rigoureuse permet de limiter les risques de redressement, de crédibiliser la fonction du gestionnaire de paie et d'éviter les erreurs récurrentes.", 
+                        legal: "Bonnes pratiques et obligations légales" 
+                    },
                 ],
                 courseModules: [
                     {
@@ -308,10 +427,38 @@
                 title: "Compétences Transverses",
                 intro: "Au-delà de la technique, le gestionnaire de paie moderne doit développer des compétences transverses essentielles : veille juridique, communication, analyse de données et maîtrise des outils SIRH.",
                 subtopics: [
-                    { title: "Veille juridique", toMaster: "Savoir rechercher les textes officiels (Code du Travail, CSS, BOFiP), synthétiser les évolutions, et diffuser l'information.", competence: "RNCP38019BC03", competenceTitle: "Assurer le suivi et le conseil auprès de la clientèle ou en interne", why: "S'adapter en permanence à l'évolution du droit social est indispensable pour garantir la conformité.", legal: "Sources officielles" },
-                    { title: "Communication et conseil", toMaster: "Expliquer un bulletin de paie, répondre aux questions des salariés, former les managers aux outils et procédures.", competence: "RNCP38019BC03", competenceTitle: "Assurer le suivi et le conseil auprès de la clientèle ou en interne", why: "Faciliter la compréhension, réduire les erreurs et responsabiliser les équipes.", legal: "Bonnes pratiques" },
-                    { title: "Reporting et pilotage RH", toMaster: "Réaliser des tableaux de bord (masse salariale, effectifs, absentéisme), exploiter les données pour aider à la décision.", competence: "RNCP38019BC03", competenceTitle: "Assurer le suivi et le conseil auprès de la clientèle ou en interne", why: "Soutenir la stratégie RH en fournissant une vision claire des coûts et de la gestion sociale.", legal: "Analyse de données" },
-                    { title: "Utilisation du SIRH", toMaster: "Rédiger des modes opératoires, former et accompagner les collaborateurs dans l'utilisation des outils (gestion des congés, temps).", competence: "RNCP38019BC03", competenceTitle: "Assurer le suivi et le conseil auprès de la clientèle ou en interne", why: "Assurer l'adoption des outils numériques pour fluidifier la gestion RH et réduire les erreurs.", legal: "Gestion de projet" },
+                    { 
+                        title: "Veille juridique", 
+                        toMaster: "Savoir rechercher et interpréter les textes officiels (Code du Travail, CSS, Bulletin Officiel de la Sécurité Sociale). Être capable de synthétiser les évolutions réglementaires et de les communiquer de manière claire. Anticiper les impacts sur le logiciel de paie et les procédures internes.", 
+                        competence: "RNCP38019BC03", 
+                        competenceTitle: "Assurer le suivi et le conseil auprès de la clientèle ou en interne", 
+                        why: "Le droit social est en constante évolution. Une veille juridique rigoureuse est indispensable pour garantir la conformité de la paie et des déclarations, évitant ainsi les risques de redressement.", 
+                        legal: "Sources officielles" 
+                    },
+                    { 
+                        title: "Communication et conseil", 
+                        toMaster: "Expliquer un bulletin de paie de manière simple et pédagogique. Répondre aux questions des salariés et des managers de manière claire et précise. Former les équipes aux outils et procédures internes de gestion des temps ou des absences.", 
+                        competence: "RNCP38019BC03", 
+                        competenceTitle: "Assurer le suivi et le conseil auprès de la clientèle ou en interne", 
+                        why: "Le rôle du gestionnaire de paie s'étend au-delà du simple calcul. Il est un conseiller clé. Une bonne communication réduit les erreurs, améliore la satisfaction des salariés et renforce la crédibilité du service paie.", 
+                        legal: "Bonnes pratiques" 
+                    },
+                    { 
+                        title: "Reporting et pilotage RH", 
+                        toMaster: "Réaliser des tableaux de bord pertinents pour suivre les indicateurs clés (masse salariale, effectifs, absentéisme, etc.). Savoir exploiter les données issues de la paie pour aider à la décision stratégique de l'entreprise. Utiliser les outils de reporting du logiciel de paie.", 
+                        competence: "RNCP38019BC03", 
+                        competenceTitle: "Assurer le suivi et le conseil auprès de la clientèle ou en interne", 
+                        why: "Le gestionnaire de paie est au cœur des données sociales de l'entreprise. Un reporting de qualité permet à la direction RH de piloter sa stratégie, d'anticiper les coûts et de mieux gérer le capital humain.", 
+                        legal: "Analyse de données" 
+                    },
+                    { 
+                        title: "Utilisation du SIRH", 
+                        toMaster: "Rédiger des modes opératoires clairs et structurés pour le SIRH (Système d'Information de Gestion des Ressources Humaines). Former et accompagner les collaborateurs à l'utilisation des différents modules (gestion des congés, des temps de travail, etc.).", 
+                        competence: "RNCP38019BC03", 
+                        competenceTitle: "Assurer le suivi et le conseil auprès de la clientèle ou en interne", 
+                        why: "Une bonne maîtrise et une bonne utilisation du SIRH permettent de fluidifier les processus RH, d'améliorer la productivité et de réduire les erreurs de saisie. Le gestionnaire de paie est souvent un acteur clé dans le déploiement de ces outils.", 
+                        legal: "Gestion de projet" 
+                    },
                 ]
             }
         ];
