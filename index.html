@@ -36,7 +36,7 @@
             transition: max-height 0.3s ease-out, padding 0.3s ease-out;
         }
         .accordion-item.active .accordion-content {
-            max-height: 1000px; 
+            max-height: 2000px; 
             padding-top: 1rem;
             padding-bottom: 1rem;
         }
@@ -95,15 +95,15 @@
                         <p class="text-gray-700 leading-relaxed">
                             Cette application a été conçue pour vous aider à naviguer et assimiler le programme du Bloc 1. Utilisez le menu pour explorer chaque grand thème. Chaque section contient des fiches détaillées sur les savoirs, les compétences RNCP, les enjeux métiers et les bases légales à maîtriser. L'objectif est de transformer votre révision en une expérience active et structurée pour assurer votre succès.
                         </p>
-                        <div class="mt-6 flex flex-col space-y-4 w-full">
-                            <a href="https://projettechacademy.github.io/Preparation-Evaluation-GP_B1/" target="_blank" class="w-full inline-block bg-pink-500 text-white font-bold py-3 px-6 rounded-full shadow-md hover:bg-pink-600 transition-colors duration-200 text-center">
+                        <div class="mt-6 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 w-full">
+                            <a href="https://projettechacademy.github.io/Preparation-Evaluation-GP_B1/" target="_blank" class="flex-1 inline-block bg-pink-500 text-white font-bold py-3 px-6 rounded-full shadow-md hover:bg-pink-600 transition-colors duration-200 text-center">
                                 Préparation à l'Évaluation 📝✨
                             </a>
-                            <a href="https://projettechacademy.github.io/Guide-de-Survie-Pour-Evaluation-Paie/" target="_blank" class="w-full inline-block bg-amber-500 text-white font-bold py-3 px-6 rounded-full shadow-md hover:bg-amber-600 transition-colors duration-200 text-center">
+                            <a href="https://projettechacademy.github.io/Guide-de-Survie-Pour-Evaluation-Paie/" target="_blank" class="flex-1 inline-block bg-amber-500 text-white font-bold py-3 px-6 rounded-full shadow-md hover:bg-amber-600 transition-colors duration-200 text-center">
                                 Accéder au Guide de Survie
                             </a>
-                            <a href="https://projettechacademy.github.io/Suivi-et-Revision-des-Competences-Gestionnaire-de-Paie/" target="_blank" class="w-full inline-block bg-purple-500 text-white font-bold py-3 px-6 rounded-full shadow-md hover:bg-purple-600 transition-colors duration-200 text-center">
-                                ✨ Programme ✨ Suivi ✨ Révision ✨ Évaluation ✨
+                            <a href="https://projettechacademy.github.io/Suivi-et-Revision-des-Competences-Gestionnaire-de-Paie/" target="_blank" class="flex-1 inline-block bg-purple-500 text-white font-bold py-3 px-6 rounded-full shadow-md hover:bg-purple-600 transition-colors duration-200 text-center">
+                                Programme ✨ Suivi ✨ Révision ✨ Évaluation ✨
                             </a>
                         </div>
                     </div>
@@ -134,6 +134,30 @@
                     { title: "Identification de l'entreprise", toMaster: "Saisie des données administratives (Raison sociale, Siret, APE), identification de la convention collective (IDCC), connaissance des règles d'opposabilité.", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Assurer la conformité légale, l'opposabilité et le bon traitement des cotisations. Incontournable pour la validité de la paie.", legal: "Art. L3243-2 Code du travail" },
                     { title: "Identification du salarié", toMaster: "Collecte et vérification des données : n° sécurité sociale valide, classification, statut, taux PAS personnalisé.", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Données essentielles pour la production correcte des bulletins et la DSN.", legal: "Art. R3243-1 Code du travail" },
                     { title: "Contrat de travail", toMaster: "Différencier CDI/CDD, gérer dates, période d'essai, durée du travail. Maîtriser les formalités d'entrée et sortie.", competence: "RNCP38019BC02", competenceTitle: "Gérer les déclarations sociales et les cotisations", why: "Garantir la régularité juridique du contrat, éviter les contentieux.", legal: "Art. L1221-10 et suivants C. trav." },
+                ],
+                courseModules: [
+                    {
+                        title: "B1 M1 Paramétrer le logiciel de paie",
+                        link: "https://app.comptalia.com/v3/medialibrary/lib/themes?promotionId=4104&subjectId=49239&moduleId=70017",
+                        documents: [
+                            {name: "B1_M1_001: Télécharger le logiciel", link: "#"},
+                            {name: "B1_M1_002: La base de données 2019", link: "#"},
+                            {name: "B1_M1_003: Lancement de l'application", link: "#"},
+                            {name: "B1_M1_004: Découverte de l'application", link: "#"},
+                            {name: "B1_M1_005: La création d'une société", link: "#"},
+                            {name: "B1_M1_006: Le paramétrage d'une société", link: "#"},
+                            {name: "B1_M1_007: Le paramétrage de l'établissement", link: "#"},
+                            {name: "B1_M1_008: La création des fiches salariés", link: "#"},
+                            {name: "B1_M1_009: Le paramétrage des bulletins modèles", link: "#"},
+                            {name: "B1_M1_010: Le paramétrage du salaire brut", link: "#"},
+                            {name: "B1_M1_011: Le paramétrage des cotisations sociales", link: "#"},
+                            {name: "B1_M1_012: Le paramétrage des salaires nets", link: "#"},
+                            {name: "B1_M1_013: Les déclarations sociales", link: "#"},
+                            {name: "B1_M1_014: Questions fréquentes", link: "#"},
+                            {name: "B1_M1_015: L'Accès à d'autres logiciels de paie", link: "#"},
+                            {name: "B1_M1_016: Synthèse et application : Paramétrer le logiciel de paie", link: "#"}
+                        ]
+                    }
                 ]
             },
             {
@@ -147,6 +171,40 @@
                     { title: "Avantages en nature", toMaster: "Maîtriser la valorisation (forfaitaire/réelle) des avantages (véhicule, logement), appliquer les cotisations correspondantes.", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Limiter les risques de redressement URSSAF, impact direct sur le net imposable.", legal: "Circulaire Urssaf, BoSS" },
                     { title: "Congés payés", toMaster: "Décompte en jours ouvrables/ouvrés, calcul de l'indemnité (maintien vs 1/10e), gestion du prorata.", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Droit fondamental du salarié. Toute erreur est une source de litige potentiel.", legal: "Art. L3141-1 C. trav." },
                     { title: "Absences et arrêts maladie", toMaster: "Calcul des retenues sur salaire, application du maintien de salaire (légal/conventionnel), gestion de la subrogation et des IJSS.", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Garantir une paie conforme, respecter la protection du salarié et éviter les sanctions.", legal: "Art L1226-1 C. trav." },
+                ],
+                courseModules: [
+                    {
+                        title: "B1 M2 Collecter et traiter les variables de paie",
+                        link: "https://app.comptalia.com/v3/medialibrary/lib/themes?promotionId=4104&subjectId=49239&moduleId=70018",
+                        documents: [
+                            { name: "B1_M2_001: Comment et pourquoi se former à la collecte et au calcul des variables de paie", link: "https://app.comptalia.com/v3/medialibrary/lib/resources?promotionId=4104&subjectId=49239&moduleId=70018&themeId=107284" },
+                            { name: "B1_M2_002: Présentation de la Gestion de la Paie", link: "https://app.comptalia.com/v3/medialibrary/lib/resources?promotionId=4104&subjectId=49239&moduleId=70018&themeId=104418" },
+                            { name: "B1_M2_003: La gestion de la paie (pour débutants)", link: "https://app.comptalia.com/v3/medialibrary/lib/resources?promotionId=4104&subjectId=49239&moduleId=70018&themeId=123854" },
+                            { name: "B1_M2_004: Le temps de travail", link: "https://app.comptalia.com/v3/medialibrary/lib/resources?promotionId=4104&subjectId=49239&moduleId=70018&themeId=107360" },
+                            { name: "B1_M2_005: La rémunération", link: "https://app.comptalia.com/v3/medialibrary/lib/resources?promotionId=4104&subjectId=49239&moduleId=70018&themeId=107361" },
+                            { name: "B1_M2_006: Application : Collecter et traiter les variables de paie", link: "https://app.comptalia.com/v3/medialibrary/lib/resources?promotionId=4104&subjectId=49239&moduleId=70018&themeId=132755" }
+                        ]
+                    },
+                    {
+                        title: "B1 M3 Gérer la rémunération",
+                        link: "https://app.comptalia.com/v3/medialibrary/lib/themes?promotionId=4104&subjectId=49239&moduleId=70019",
+                        documents: [
+                            { name: "B1_M3_001: La présentation et la méthodologie du bulletin de salaire", link: "https://app.comptalia.com/v3/medialibrary/lib/resources?promotionId=4104&subjectId=49239&moduleId=70019&themeId=108897" },
+                            { name: "B1_M3_002: Le règlement du salaire", link: "https://app.comptalia.com/v3/medialibrary/lib/resources?promotionId=4104&subjectId=49239&moduleId=70019&themeId=108898" },
+                            { name: "B1_M3_003: La rémunération brute : l'acquisition et la prise de congés payés", link: "https://app.comptalia.com/v3/medialibrary/lib/resources?promotionId=4104&subjectId=49239&moduleId=70019&themeId=129632" },
+                            { name: "B1_M3_004: La rémunération brute : l’indemnité de congés payés", link: "https://app.comptalia.com/v3/medialibrary/lib/resources?promotionId=4104&subjectId=49239&moduleId=70019&themeId=129631" },
+                            { name: "B1_M3_05_La rémunération brute : les heures complémentaires", link: "https://app.comptalia.com/v3/medialibrary/lib/resources?promotionId=4104&subjectId=49239&moduleId=70019&themeId=108870" },
+                            { name: "B1_M3_006_Présentation de la rémunération brute et de la durée légale du travail", link: "https://app.comptalia.com/v3/medialibrary/lib/resources?promotionId=4104&subjectId=49239&moduleId=70019&themeId=129816" },
+                            { name: "B1_M3_007_Présentation de la rémunération brute et le temps de travail effectif", link: "https://app.comptalia.com/v3/medialibrary/lib/resources?promotionId=4104&subjectId=49239&moduleId=70019&themeId=129815" },
+                            { name: "B1_M3_008_La rémunération brute : le salaire de base, les primes et la retenue pour absence", link: "https://app.comptalia.com/v3/medialibrary/lib/resources?promotionId=4104&subjectId=49239&moduleId=70019&themeId=108894" },
+                            { name: "B1_M3_009_La rémunération brute : les heures supplémentaires et le dimanche travaillé", link: "https://app.comptalia.com/v3/medialibrary/lib/resources?promotionId=4104&subjectId=49239&moduleId=70019&themeId=109013" },
+                            { name: "B1_M3_010_La rémunération brute : les heures supplémentaires", link: "https://app.comptalia.com/v3/medialibrary/lib/resources?promotionId=4104&subjectId=49239&moduleId=70019&themeId=108869" },
+                            { name: "B1_M3_011_La rémunération brute : les avantages en nature", link: "https://app.comptalia.com/v3/medialibrary/lib/resources?promotionId=4104&subjectId=49239&moduleId=70019&themeId=108868" },
+                            { name: "B1_M3_012_La rémunération brute : l’arrêt de travail, la retenue pour absence, la subrogation et les IJSS", link: "https://app.comptalia.com/v3/medialibrary/lib/resources?promotionId=4104&subjectId=49239&moduleId=70019&themeId=129824" },
+                            { name: "B1_M3_013_La rémunération brute : l’arrêt de travail et le complément employeur", link: "https://app.comptalia.com/v3/medialibrary/lib/resources?promotionId=4104&subjectId=49239&moduleId=70019&themeId=130913" },
+                            { name: "B1_M3_014_La grève et le lock-out", link: "https://app.comptalia.com/v3/medialibrary/lib/resources?promotionId=4104&subjectId=49239&moduleId=70019&themeId=107340" }
+                        ]
+                    }
                 ]
             },
             {
@@ -158,6 +216,36 @@
                     { title: "Réductions et allègements", toMaster: "Maîtriser le calcul de la réduction générale de cotisations (ex-Fillon) et des exonérations sur les heures supplémentaires (TEPA).", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Optimisation légale de la masse salariale, impact direct sur le coût du travail.", legal: "Décrets en vigueur" },
                     { title: "Calcul du net et de l'imposable", toMaster: "Calculer le net imposable, le net à payer et le net social. Gérer la CSG/CRDS, appliquer le prélèvement à la source (PAS).", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Clarté du bulletin, conformité fiscale et respect des obligations de l'employeur.", legal: "BOFiP, Code Général des Impôts" },
                     { title: "Édition du bulletin de paie", toMaster: "Savoir présenter toutes les mentions obligatoires, justifier chaque ligne de calcul, et respecter la législation en vigueur.", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Le bulletin est une preuve juridique. Sa conformité est essentielle en cas de contrôle.", legal: "Art L3243-2 C. trav." },
+                ],
+                courseModules: [
+                     {
+                        title: "B1 M4 Traiter les bulletins de salaires",
+                        link: "https://app.comptalia.com/v3/medialibrary/lib/themes?promotionId=4104&subjectId=49239&moduleId=70020",
+                        documents: [
+                            {name: "B1_M4_001: Le bulletin de salaire d'un dirigeant sans contrat de travail", link: "#"},
+                            {name: "B1_M4_002: L'activité partielle", link: "#"},
+                            {name: "B1_M4_003: Le bulletin de salaire VRP", link: "#"},
+                            {name: "B1_M4_004: Le bulletin de salaire du BTP (ouvrier)", link: "#"},
+                            {name: "B1_M4_005: Le bulletin de salaire du BTP (ETAM et Cadres)", link: "#"},
+                            {name: "B1_M4_006: Le bulletin de salaire Apprenti", link: "#"},
+                            {name: "B1_M4_007: La gratification stagiaire", link: "#"},
+                            {name: "B1_M4_008: Synthèse et application : Collecter et traiter les variables de paie", link: "#"}
+                        ]
+                    },
+                    {
+                        title: "B1 M5 Contrôler et éditer les Bulletins de paie",
+                        link: "#",
+                        documents: [
+                            {name: "B1_M5_001: Les diverses cotisations sociales", link: "#"},
+                            {name: "B1_M5_002: Les bases de calcul des cotisations sociales", link: "#"},
+                            {name: "B1_M5_003: Les réductions de cotisations sociales", link: "#"},
+                            {name: "B1_M5_004: Les régularisations de cotisations sociales", link: "#"},
+                            {name: "B1_M5_005: Le salaire net et le salaire imposable", link: "#"},
+                            {name: "B1_M5_006: Les impacts du prélèvement à la source", link: "#"},
+                            {name: "B1_M5_007: Le salaire net à payer et le net social", link: "#"},
+                            {name: "B1_M5_008: Synthèse et application : Contrôler et éditer les Bulletins de paie", link: "#"}
+                        ]
+                    }
                 ]
             },
             {
@@ -167,6 +255,26 @@
                 subtopics: [
                     { title: "Déclarations Sociales Nominatives (DSN)", toMaster: "Saisir les bases et montants avec exactitude, contrôler les anomalies, respecter le calendrier de dépôt (J+15), gérer les corrections.", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Obligation légale lourde, avec un risque élevé de pénalités et de redressements URSSAF.", legal: "Code Sécurité Sociale Art. L133-5-2" },
                     { title: "Taxes et contributions", toMaster: "Gérer la taxe d'apprentissage, la participation à la formation continue, la DOETH, et les taxes sur les salaires.", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Respect des obligations légales annexes à la paie, qui sont aussi soumises à contrôle.", legal: "Dispositions légales spécifiques" },
+                ],
+                courseModules: [
+                    {
+                        title: "B1 M6 Gérer les déclarations sociales",
+                        link: "#",
+                        documents: [
+                            {name: "B1_M6_001: Comment et pourquoi se former à l'édition et au contrôle des déclarations sociales", link: "#"},
+                            {name: "B1_M6_002: Le livre de paie", link: "#"},
+                            {name: "B1_M6_003: Les modalités déclaratives", link: "#"},
+                            {name: "B1_M6_004: Le contenu des déclarations sociales : la réduction générale et TEPA", link: "#"},
+                            {name: "B1_M6_005: Le contenu des déclarations sociales : les cotisations, le PAS et les contributions sociales", link: "#"},
+                            {name: "B1_M6_006: La gestion des arrêts de travail en paie", link: "#"},
+                            {name: "B1_M6_007: La taxe d'apprentissage", link: "#"},
+                            {name: "B1_M6_008: La gestion de la déclaration d'emploi des travailleurs handicapés", link: "#"},
+                            {name: "B1_M6_009: Les taxes sur les salaires", link: "#"},
+                            {name: "B1_M6_010: La participation à la formation continue", link: "#"},
+                            {name: "B1_M6_011: L'investissement obligatoire dans la construction", link: "#"},
+                            {name: "B1_M6_012: Synthèse et application : Gérer les déclarations sociales", link: "#"}
+                        ]
+                    }
                 ]
             },
             {
@@ -176,6 +284,23 @@
                 subtopics: [
                     { title: "Comptabilisation de la paie", toMaster: "Affecter les charges salariales et patronales aux bons comptes comptables, préparer l'état des écritures de paie.", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Assure la transparence et la cohérence de la gestion financière de l'entreprise.", legal: "Plan comptable général" },
                     { title: "Analyse et correction des écarts", toMaster: "Identifier les causes d'écarts (paramétrage, saisie), proposer des actions correctrices (bulletin, DSN), documenter le risque.", competence: "RNCP38019BC01", competenceTitle: "Gérer les variables et les bulletins de paie", why: "Limiter les risques de redressement, sécuriser la gestion de la paie, et crédibiliser la fonction.", legal: "Bonnes pratiques et obligations légales" },
+                ],
+                courseModules: [
+                    {
+                        title: "B1 M7 Analyser les écarts entre la paie et la comptabilité",
+                        link: "#",
+                        documents: [
+                            {name: "B1_M7_001: Les enjeux de l'identification et l'analyse des écarts entre la paie et la comptabilité", link: "#"},
+                            {name: "B1_M7_002: La présentation du plan comptable : généralités", link: "#"},
+                            {name: "B1_M7_003: Le grand livre comptable et les données paie", link: "#"},
+                            {name: "B1_M7_004: Les opérations comptables issues de la paie", link: "#"},
+                            {name: "B1_M7_005: Comptabilisation de la paie", link: "#"},
+                            {name: "B1_M7_006: L'analyse des causes", link: "#"},
+                            {name: "B1_M7_007: L'analyse des risques", link: "#"},
+                            {name: "B1_M7_008: Les opérations de régularisations", link: "#"},
+                            {name: "B1_M7_009: Synthèse et application : Analyser les écarts entre la paie et la comptabilité", link: "#"}
+                        ]
+                    }
                 ]
             },
             {
@@ -217,6 +342,7 @@
                 sectionTitle.textContent = themeData.title;
                 sectionIntro.textContent = themeData.intro;
                 
+                // Render subtopic accordions
                 themeData.subtopics.forEach((subtopic, index) => {
                     const item = document.createElement('div');
                     item.className = 'accordion-item bg-white rounded-xl shadow-sm border border-amber-200 overflow-hidden';
@@ -244,6 +370,40 @@
                     `;
                     accordionContainer.appendChild(item);
                 });
+
+                // Render course document lists
+                if (themeData.courseModules) {
+                    const moduleSection = document.createElement('div');
+                    moduleSection.innerHTML = `<h3 class="text-2xl font-bold text-amber-600 mt-8 mb-4">Liste des Cours 📚</h3>`;
+                    accordionContainer.appendChild(moduleSection);
+
+                    themeData.courseModules.forEach(module => {
+                        const moduleItem = document.createElement('div');
+                        moduleItem.className = 'accordion-item bg-white rounded-xl shadow-sm border border-amber-200 overflow-hidden';
+                        const moduleTitleHtml = module.link ? `<a href="${module.link}" target="_blank" class="hover:underline">${module.title}</a>` : module.title;
+                        moduleItem.innerHTML = `
+                             <button class="accordion-header w-full text-left p-5 flex justify-between items-center">
+                                <span class="text-lg font-semibold text-amber-800">${moduleTitleHtml}</span>
+                                <span class="accordion-arrow text-amber-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </button>
+                            <div class="accordion-content px-5">
+                                <div class="space-y-2 mt-2">
+                                    ${module.documents.map(doc => `
+                                        <label class="flex items-center text-gray-700">
+                                            <input type="checkbox" class="form-checkbox h-4 w-4 text-amber-600 rounded">
+                                            <span class="ml-2">${doc.link ? `<a href="${doc.link}" target="_blank" class="text-amber-800 hover:underline">${doc.name}</a>` : doc.name}</span>
+                                        </label>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        `;
+                        accordionContainer.appendChild(moduleItem);
+                    });
+                }
             }
 
             navLinks.forEach(link => {
